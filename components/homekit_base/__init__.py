@@ -49,6 +49,7 @@ cv.only_on_esp32)
 async def to_code(config):
     if getattr(CORE, "using_toolchain_esp_idf", False):
         cg.add_platformio_option("lib_ignore", ["libsodium"])
+    add_idf_component(name="espressif/libsodium", ref="^1.0.20~1")
     add_idf_component(
         name="esp_hap_core",
         repo="https://github.com/rednblkx/esp-homekit-sdk",
